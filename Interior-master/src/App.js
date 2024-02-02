@@ -21,7 +21,10 @@ import { Cookies } from './Allterms/cookies';
 import { Privacy } from './Allterms/privacy';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import { SmoothScroll } from './smooth';
-
+import AdminLayout from './components/layouts/Admin-Layout'
+import {AdminUsers} from './pages/Admin-Users'
+import {AdminContacts} from './pages/Admin-Conacts'
+import { AdminUpdate } from './pages/Admin-Update'
 import Signup from './signup/Signup';
 import Login from './Login/Login';
 import { Logout } from './Logout/Logout';
@@ -64,7 +67,11 @@ function App() {
 
 
 
-      
+        <Route path="/admin" element={<AdminLayout />}>
+      <Route path='users' element={<AdminUsers/>}/>
+      <Route path='contacts' element={<AdminContacts/>}/>
+      <Route path="users/:id/edit" element={<AdminUpdate />} />
+      </Route>
 
       </Routes>
       <Footer />
